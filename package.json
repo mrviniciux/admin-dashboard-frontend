@@ -12,6 +12,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.55.2",
     "antd": "^5.20.5",
     "next": "14.2.6",
     "react": "18.3.1",
@@ -29,6 +30,7 @@
     "@storybook/nextjs": "8.2.9",
     "@storybook/react": "8.2.9",
     "@storybook/test": "8.2.9",
+    "@tanstack/eslint-plugin-query": "^5.53.0",
     "@testing-library/dom": "10.4.0",
     "@testing-library/jest-dom": "6.5.0",
     "@testing-library/react": "16.0.1",

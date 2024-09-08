@@ -1,33 +1,27 @@
 import React from 'react';
-import type { FormProps } from 'antd/lib';
-import { Button, Checkbox, Form, Input } from 'antd/lib';
+import { Button, Form, Input } from 'antd/lib';
+import { useLoginStore } from '@/stores/useLogin.store';
 
-type FieldType = {
-  username?: string;
-  password?: string;
-  remember?: string;
-};
-
-const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
-  console.log('Success:', values);
-};
-
-const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = (errorInfo) => {
-  console.log('Failed:', errorInfo);
+type LoginDataType = {
+  username: string;
+  password: string;
 };
 
 function LoginForm() {
+  const { login } = useLoginStore();
+
   return (
     <Form
       name="basic"
       labelCol={{ span: 24 }}
       wrapperCol={{ span: 24 }}
       initialValues={{ remember: true }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
+      onFinish={({ username, password }: LoginDataType) =>
+        login(username, password)
+      }
       autoComplete="off"
     >
-      <Form.Item<FieldType>
+      <Form.Item<LoginDataType>
         label="Usuário"
         name="username"
         rules={[{ required: true, message: 'Informe um usuário' }]}
@@ -35,7 +29,7 @@ function LoginForm() {
         <Input />
       </Form.Item>
 
-      <Form.Item<FieldType>
+      <Form.Item<LoginDataType>
         label="Senha"
         name="password"
         rules={[{ required: true, message: 'Informe a senha!' }]}
@@ -45,7 +39,7 @@ function LoginForm() {
 
       <Form.Item>
         <Button type="primary" htmlType="submit">
-          Submit
+          Entrar
         </Button>
       </Form.Item>
     </Form>
