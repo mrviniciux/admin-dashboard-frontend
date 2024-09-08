@@ -1,0 +1,17 @@
+.login-img-background {
+  background-image: url('/login-background.jpg');
+  background-size: cover;
+  height: 100vh
+}
+
+.login-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .login-img-background {
+    height: 40vh;
+    margin-bottom: 15vh
+  }
+}
