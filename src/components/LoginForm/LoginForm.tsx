@@ -8,7 +8,7 @@ type LoginDataType = {
 };
 
 function LoginForm() {
-  const { login } = useLoginStore();
+  const { setUser } = useLoginStore();
 
   return (
     <Form
@@ -17,7 +17,7 @@ function LoginForm() {
       wrapperCol={{ span: 24 }}
       initialValues={{ remember: true }}
       onFinish={({ username, password }: LoginDataType) =>
-        login(username, password)
+        setUser(username, password)
       }
       autoComplete="off"
     >
