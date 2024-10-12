@@ -17,7 +17,7 @@ export default function handler(
   if (req.method === 'POST') {
     res.status(200).json({
       id: '1',
-      email: user.email,
+      email: `asdf@gmail.com`,
       name: 'aaaaaaaaaaaaaaaaaaa',
       image: '/test.png',
       token:

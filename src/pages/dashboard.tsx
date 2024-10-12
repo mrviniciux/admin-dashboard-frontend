@@ -1,5 +1,7 @@
+import Content from '@/components/Content';
+
 function Dashboard() {
-  return <div>dashboard</div>;
+  return <Content />;
 }
 
 export default Dashboard;
