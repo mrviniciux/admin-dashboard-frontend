@@ -4,4 +4,6 @@ function Dashboard() {
   return <Content />;
 }
 
+Dashboard.auth = true;
+
 export default Dashboard;

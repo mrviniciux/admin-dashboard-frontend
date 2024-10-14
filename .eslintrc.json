@@ -7,11 +7,7 @@
   "plugins": ["react"],
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "prettier/prettier": ["error", { "endOfLine": "auto" }],
-    "no-unused-vars": [
-      "warn", 
-      { "args": "none" }
-    ]
+    "prettier/prettier": ["error", { "endOfLine": "auto" }]
   },
   "env": {
     "browser": true,

@@ -13,7 +13,7 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const { user } = req.body;
+  // const { user } = req.body;
   if (req.method === 'POST') {
     res.status(200).json({
       id: '1',
