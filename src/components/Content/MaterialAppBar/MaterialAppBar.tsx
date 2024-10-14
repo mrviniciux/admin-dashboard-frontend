@@ -5,7 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
-import { useContent } from '../Content.context';
+import { useContent } from '../Template.context';
 
 interface MaterialAppBarProps {
   drawerWidth: number;

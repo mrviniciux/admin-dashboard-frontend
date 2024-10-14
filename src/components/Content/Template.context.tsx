@@ -2,6 +2,7 @@ import React, { createContext, ReactNode, useContext } from 'react';
 
 type ContentContextType = {
   open: boolean;
+  // eslint-disable-next-line no-unused-vars
   setOpen: (open: boolean) => void;
 };
 

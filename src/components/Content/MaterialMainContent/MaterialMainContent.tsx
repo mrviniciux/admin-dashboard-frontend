@@ -1,6 +1,6 @@
 //Most of that code was copy-pasted from https://mui.com/material-ui/react-drawer/
 import { styled } from '@mui/material/styles';
-import { useContent } from '../Content.context';
+import { useContent } from '../Template.context';
 import { ReactNode } from 'react';
 
 function MaterialMainContent({
