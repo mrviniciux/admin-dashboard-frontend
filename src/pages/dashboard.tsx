@@ -1,7 +1,11 @@
-import Content from '@/components/Content';
+import Template from '@/components/Template';
 
 function Dashboard() {
-  return <Content />;
+  return (
+    <Template>
+      <p>content</p>
+    </Template>
+  );
 }
 
 Dashboard.auth = true;
