@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { SessionProvider, useSession } from 'next-auth/react';
 import { NextComponentType } from 'next';
 import { ReactNode } from 'react';
+import Loader from '@/components/Loader';
 
 type AppPageProps = AppProps & {
   Component: {
@@ -34,7 +35,7 @@ function Auth({ children }: { children: ReactNode }) {
   const { status } = useSession({ required: true });
 
   if (status === 'loading') {
-    return <div>Loading...</div>;
+    return <Loader type="linear" fullScreen />;
   }
 
   return children;
