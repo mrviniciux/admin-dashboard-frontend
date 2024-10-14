@@ -55,7 +55,7 @@ function MaterialAppBar({ drawerWidth }: MaterialAppBarProps) {
           <MenuIcon />
         </IconButton>
         <Typography variant="h6" noWrap component="div">
-          Persistent drawer
+          Dashboard admin - v1
         </Typography>
       </Toolbar>
     </AppBar>
