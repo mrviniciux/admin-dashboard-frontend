@@ -1,15 +1,15 @@
-import BarChart from '@/components/Charts/BarChart/BarChart';
-import LineChart from '@/components/Charts/LineChart';
-import PieChart from '@/components/Charts/PieChart/PieChart';
+import Charts from '@/components/Charts';
 import Template from '@/components/Template';
 import {
   fetchSalesByYear,
   fetchSalesGraph,
   fetchTimeDistribution,
 } from '@/services/charts';
+import { Grid2 } from '@mui/material';
 import { useQueries } from '@tanstack/react-query';
 
 function Dashboard() {
+  const sizes = { lg: 4 };
   const [sales, salesByYear, timeDistribution] = useQueries({
     queries: [
       {
@@ -29,17 +29,26 @@ function Dashboard() {
 
   return (
     <Template>
-      {sales.isPending ? <p>Loading</p> : <LineChart {...sales.data} />}
-      {salesByYear.isPending ? (
-        <p>Loading</p>
-      ) : (
-        <BarChart {...salesByYear.data} />
-      )}
-      {timeDistribution.isPending ? (
-        <p>Loading</p>
-      ) : (
-        <PieChart {...timeDistribution.data} />
-      )}
+      <Grid2
+        container
+        width={'100%'}
+        alignItems={'center'}
+        spacing={4}
+        justifyContent={'center'}
+      >
+        <Grid2
+          style={{ position: 'relative', height: '40vh', width: '80vw' }}
+          size={sizes}
+        >
+          <Charts type="line" {...sales} />
+        </Grid2>
+        <Grid2 size={sizes}>
+          <Charts type="bar" {...salesByYear} />
+        </Grid2>
+        <Grid2 size={sizes}>
+          <Charts type="pie" {...timeDistribution} />
+        </Grid2>
+      </Grid2>
     </Template>
   );
 }

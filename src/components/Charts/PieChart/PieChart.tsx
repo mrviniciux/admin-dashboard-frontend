@@ -7,7 +7,7 @@ import {
   ArcElement,
   registerables,
 } from 'chart.js';
-import { Pie } from 'react-chartjs-2';
+import { PieChartStyled } from './PieChart.styled';
 
 Chart.register(...registerables);
 Chart.register(ArcElement, Tooltip, Legend); // Registrar os elementos necessários
@@ -96,7 +96,7 @@ const PieChart = ({ labels, datasets }: PieChartProps) => {
     },
   };
 
-  return <Pie data={data} options={options} />;
+  return <PieChartStyled data={data} options={options} />;
 };
 
 export default PieChart;
