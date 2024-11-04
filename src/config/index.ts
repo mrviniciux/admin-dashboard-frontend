@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { createTheme, PaletteMode } from '@mui/material';
-import { orange } from '@mui/material/colors';
+
+export const API_URL = 'http://localhost:3000/api';
 
 declare module '@mui/material/styles' {
   interface Theme {
@@ -18,6 +19,6 @@ declare module '@mui/material/styles' {
 
 export const theme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: 'light',
   },
 });

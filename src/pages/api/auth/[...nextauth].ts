@@ -24,7 +24,7 @@ export const authOptions: NextAuthOptions = {
 
         try {
           // Faz a chamada para a rota local /api/login
-          const res = await fetch('http://localhost:3000/api/login', {
+          const res = await fetch(`${process.env.API_URL}/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -50,7 +50,7 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async session({ session, token }: { session: any; token: JWT }) {
+    async session({ session }: { session: any; token: JWT }) {
       // Adiciona o accessToken à sessão
       console.log(`adiciona accessToken`, session);
       session.accessToken = '12345679';
