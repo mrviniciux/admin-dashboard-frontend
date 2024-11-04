@@ -1,11 +1,16 @@
 import BarChart from '@/components/Charts/BarChart/BarChart';
 import LineChart from '@/components/Charts/LineChart';
+import PieChart from '@/components/Charts/PieChart/PieChart';
 import Template from '@/components/Template';
-import { fetchSalesByYear, fetchSalesGraph } from '@/services/charts';
+import {
+  fetchSalesByYear,
+  fetchSalesGraph,
+  fetchTimeDistribution,
+} from '@/services/charts';
 import { useQueries } from '@tanstack/react-query';
 
 function Dashboard() {
-  const [sales, salesByYear] = useQueries({
+  const [sales, salesByYear, timeDistribution] = useQueries({
     queries: [
       {
         queryKey: ['sales-graph'],
@@ -14,6 +19,10 @@ function Dashboard() {
       {
         queryKey: ['sales-by-year-graph'],
         queryFn: fetchSalesByYear,
+      },
+      {
+        queryKey: ['time-distribution-graph'],
+        queryFn: fetchTimeDistribution,
       },
     ],
   });
@@ -25,6 +34,11 @@ function Dashboard() {
         <p>Loading</p>
       ) : (
         <BarChart {...salesByYear.data} />
+      )}
+      {timeDistribution.isPending ? (
+        <p>Loading</p>
+      ) : (
+        <PieChart {...timeDistribution.data} />
       )}
     </Template>
   );

@@ -13,3 +13,11 @@ export const fetchSalesByYear = async () => {
 
   return request.json();
 };
+
+export const fetchTimeDistribution = async () => {
+  const request = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/charts/timeDistribution`
+  );
+
+  return request.json();
+};
