@@ -1,4 +1,4 @@
-# React 18 NextJS Template
+# admin-dashboard-frontend
 
 ![Screen Shot 2024-11-04 at 19 58 34](https://github.com/user-attachments/assets/b0398a7b-cead-44aa-8dbc-f8f2f2f55606)
 
