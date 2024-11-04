@@ -23,26 +23,28 @@ ChartJS.register(
   Filler
 );
 
-const LineChart = () => {
+interface LineChartProps {
+  labels: string[];
+  datasets: {
+    label: string;
+    data: number[];
+    borderColor: string;
+    backgroundColor: string;
+    fill: boolean;
+    tension: number;
+  }[];
+}
+
+const LineChart = ({ labels, datasets }: LineChartProps) => {
   // X - axis lable
-  const labels = ['Jan', 'Feb', 'Mar', 'April', 'May', 'June', 'July', 'Aug'];
+  //const labels = ['Jan', 'Feb', 'Mar', 'April', 'May', 'June', 'July', 'Aug'];
 
   // Data want to show on chart
-  const datasets = [12, 45, 67, 43, 89, 34, 67, 43];
+  //const datasets = [12, 45, 67, 43, 89, 34, 67, 43];
 
   const data = {
-    labels: labels,
-    datasets: [
-      {
-        // Title of Graph
-        label: 'My First Dataset',
-        data: datasets,
-        fill: false,
-        borderColor: 'rgb(75, 192, 192)',
-        tension: 0.1,
-      },
-      // insert similar in dataset object for making multi line chart
-    ],
+    labels,
+    datasets,
   };
 
   // To make configuration
@@ -66,11 +68,7 @@ const LineChart = () => {
     },
   };
 
-  return (
-    <div style={{ margin: '0 auto' }}>
-      <Line data={data} options={options} />
-    </div>
-  );
+  return <Line data={data} options={options} />;
 };
 
 export default LineChart;

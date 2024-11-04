@@ -23,63 +23,44 @@ ChartJS.register(
   Filler
 );
 
-const BarChart = () => {
-  const labels = ['Jan', 'Feb', 'Mar', 'April', 'May', 'June', 'July', 'Aug'];
-  const datasets = [12, 45, 67, 43, 89, 34, 67, 43];
+interface BarChartProps {
+  labels: string[];
+  datasets: {
+    label: string;
+    data: number[];
+    borderColor: string;
+    backgroundColor: string;
+  }[];
+}
+
+const BarChart = ({ labels, datasets }: BarChartProps) => {
+  //const labels = ['Jan', 'Feb', 'Mar', 'April', 'May', 'June', 'July', 'Aug'];
+  //const datasets = [12, 45, 67, 43, 89, 34, 67, 43];
   const data = {
     labels: labels,
-    datasets: [
-      {
-        // Title of Graph
-        label: 'My Bar Chart',
-        data: datasets,
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-          'rgba(255, 205, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-        ],
-        borderColor: [
-          'rgb(255, 99, 132)',
-          'rgb(255, 159, 64)',
-          'rgb(255, 205, 86)',
-          'rgb(75, 192, 192)',
-        ],
-        borderWidth: 1,
-        barPercentage: 1,
-        borderRadius: {
-          topLeft: 5,
-          topRight: 5,
-        },
-      },
-      // insert similar in dataset object for making multi bar chart
-    ],
+    datasets: datasets,
   };
   const options = {
     scales: {
       y: {
         title: {
           display: true,
-          text: 'Y-axis Lable',
+          text: 'Quantidade',
         },
         display: true,
         beginAtZero: true,
-        max: 100,
+        max: 300,
       },
       x: {
         title: {
           display: true,
-          text: 'x-axis Lable',
+          text: 'Mês',
         },
         display: true,
       },
     },
   };
-  return (
-    <div style={{ width: '1000px' }}>
-      <Bar data={data} options={options} />
-    </div>
-  );
+  return <Bar data={data} options={options} />;
 };
 
 export default BarChart;
