@@ -9,7 +9,7 @@ import { Grid2 } from '@mui/material';
 import { useQueries } from '@tanstack/react-query';
 
 function Dashboard() {
-  const sizes = { lg: 4 };
+  const sizes = { sm: 12, xs: 12, lg: 4 };
   const [sales, salesByYear, timeDistribution] = useQueries({
     queries: [
       {
@@ -32,21 +32,22 @@ function Dashboard() {
       <Grid2
         container
         width={'100%'}
-        alignItems={'center'}
+        alignItems={'flex-start'}
         spacing={4}
         justifyContent={'center'}
       >
-        <Grid2
-          style={{ position: 'relative', height: '40vh', width: '80vw' }}
-          size={sizes}
-        >
-          <Charts type="line" {...sales} />
+        <Grid2 size={sizes}>
+          <Charts title="Vendas por produto" type="line" {...sales} />
         </Grid2>
         <Grid2 size={sizes}>
-          <Charts type="bar" {...salesByYear} />
+          <Charts title="Vendas por ano" type="bar" {...salesByYear} />
         </Grid2>
         <Grid2 size={sizes}>
-          <Charts type="pie" {...timeDistribution} />
+          <Charts
+            title="Distribuição do tempo"
+            type="pie"
+            {...timeDistribution}
+          />
         </Grid2>
       </Grid2>
     </Template>

@@ -11,6 +11,7 @@ import {
   Filler,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import ChartCard from '../ChartCard/ChartCard';
 
 ChartJS.register(
   CategoryScale,
@@ -24,6 +25,7 @@ ChartJS.register(
 );
 
 interface LineChartProps {
+  title: string;
   labels: string[];
   datasets: {
     label: string;
@@ -35,13 +37,12 @@ interface LineChartProps {
   }[];
 }
 
-const LineChart = ({ labels, datasets }: LineChartProps) => {
+const LineChart = ({ labels, datasets, title }: LineChartProps) => {
   // X - axis lable
   //const labels = ['Jan', 'Feb', 'Mar', 'April', 'May', 'June', 'July', 'Aug'];
 
   // Data want to show on chart
   //const datasets = [12, 45, 67, 43, 89, 34, 67, 43];
-
   const data = {
     labels,
     datasets,
@@ -68,7 +69,11 @@ const LineChart = ({ labels, datasets }: LineChartProps) => {
     },
   };
 
-  return <Line data={data} options={options} />;
+  return (
+    <ChartCard title={title}>
+      <Line data={data} options={options} />
+    </ChartCard>
+  );
 };
 
 export default LineChart;

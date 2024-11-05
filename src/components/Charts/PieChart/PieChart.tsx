@@ -8,11 +8,13 @@ import {
   registerables,
 } from 'chart.js';
 import { PieChartStyled } from './PieChart.styled';
+import ChartCard from '../ChartCard/ChartCard';
 
 Chart.register(...registerables);
 Chart.register(ArcElement, Tooltip, Legend); // Registrar os elementos necessários
 
 interface PieChartProps {
+  title: string;
   labels: string[];
   datasets: {
     label: string;
@@ -53,7 +55,7 @@ interface PieChartOptions {
   };
 }
 
-const PieChart = ({ labels, datasets }: PieChartProps) => {
+const PieChart = ({ labels, datasets, title }: PieChartProps) => {
   // X - axis lable
   //const labels = ['Jan', 'Feb', 'Mar', 'April', 'May', 'June', 'July', 'Aug'];
 
@@ -96,7 +98,11 @@ const PieChart = ({ labels, datasets }: PieChartProps) => {
     },
   };
 
-  return <PieChartStyled data={data} options={options} />;
+  return (
+    <ChartCard title={title}>
+      <PieChartStyled data={data} options={options} />
+    </ChartCard>
+  );
 };
 
 export default PieChart;

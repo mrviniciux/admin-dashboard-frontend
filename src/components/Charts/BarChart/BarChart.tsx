@@ -11,6 +11,7 @@ import {
   Filler,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import ChartCard from '../ChartCard/ChartCard';
 
 ChartJS.register(
   CategoryScale,
@@ -24,6 +25,7 @@ ChartJS.register(
 );
 
 interface BarChartProps {
+  title: string;
   labels: string[];
   datasets: {
     label: string;
@@ -33,7 +35,7 @@ interface BarChartProps {
   }[];
 }
 
-const BarChart = ({ labels, datasets }: BarChartProps) => {
+const BarChart = ({ labels, datasets, title }: BarChartProps) => {
   //const labels = ['Jan', 'Feb', 'Mar', 'April', 'May', 'June', 'July', 'Aug'];
   //const datasets = [12, 45, 67, 43, 89, 34, 67, 43];
   const data = {
@@ -60,7 +62,11 @@ const BarChart = ({ labels, datasets }: BarChartProps) => {
       },
     },
   };
-  return <Bar data={data} options={options} />;
+  return (
+    <ChartCard title={title}>
+      <Bar data={data} options={options} />
+    </ChartCard>
+  );
 };
 
 export default BarChart;

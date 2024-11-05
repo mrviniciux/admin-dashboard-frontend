@@ -6,18 +6,19 @@ import LineChart from './LineChart';
 
 type ChartsProps = {
   type: 'line' | 'bar' | 'pie';
+  title: string;
 } & UseQueryResult<any, Error>;
 
-function Charts({ type, data, isLoading }: ChartsProps) {
+function Charts({ type, data, isLoading, title }: ChartsProps) {
   if (isLoading) return <CircularProgress />;
 
   switch (type) {
     case 'line':
-      return <LineChart {...data} />;
+      return <LineChart title={title} {...data} />;
     case 'bar':
-      return <BarChart {...data} />;
+      return <BarChart title={title} {...data} />;
     case 'pie':
-      return <PieChart {...data} />;
+      return <PieChart title={title} {...data} />;
     default:
       return <p>Graph type {type} is invalid</p>;
   }
