@@ -1,3 +1,4 @@
+'use client';
 import Charts from '@/components/Charts';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { PageContainer } from '@toolpad/core/PageContainer';
@@ -8,10 +9,8 @@ import {
 } from '@/services/charts';
 import { Grid2 } from '@mui/material';
 import { useQueries } from '@tanstack/react-query';
-import { useDynamicBreadcrumbs } from '@/hooks/useDynamicBreadcrumbs';
 
 function Dashboard() {
-  const breadcrumbs = useDynamicBreadcrumbs('');
   const sizes = { sm: 12, xs: 12, lg: 4 };
   const [sales, salesByYear, timeDistribution] = useQueries({
     queries: [
@@ -32,7 +31,7 @@ function Dashboard() {
 
   return (
     <DashboardLayout>
-      <PageContainer maxWidth={false} breadcrumbs={breadcrumbs}>
+      <PageContainer maxWidth={false}>
         <Grid2
           container
           width={'100%'}
@@ -58,7 +57,5 @@ function Dashboard() {
     </DashboardLayout>
   );
 }
-
-// Dashboard.auth = true;
 
 export default Dashboard;

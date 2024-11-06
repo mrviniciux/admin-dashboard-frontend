@@ -1,8 +1,8 @@
-import NextAuth, { NextAuthOptions } from 'next-auth';
+import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
+import { NextAuthOptions } from 'next-auth';
 import { JWT } from 'next-auth/jwt';
 
-// Tipagem para o objeto retornado da API
 interface User {
   id: string;
   email: string;
@@ -35,6 +35,8 @@ export const authOptions: NextAuthOptions = {
 
           const user = (await res.json()) as User;
 
+          console.log(`#### user ###`, user);
+
           // Verifica se a resposta contém um token
           if (res.ok && user.token) {
             console.log(`retorna user`, user);
@@ -59,4 +61,6 @@ export const authOptions: NextAuthOptions = {
   },
 };
 
-export default NextAuth(authOptions);
+const handler = NextAuth(authOptions);
+
+export { handler as GET, handler as POST };
