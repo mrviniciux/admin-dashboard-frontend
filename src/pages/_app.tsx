@@ -5,7 +5,7 @@ import { SessionProvider, useSession } from 'next-auth/react';
 import { NextComponentType } from 'next';
 import { ReactNode } from 'react';
 import Loader from '@/components/Loader';
-import { ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import { theme } from '@/config';
 
 type AppPageProps = AppProps & {
@@ -18,6 +18,7 @@ export default function App({ Component, pageProps }: AppPageProps) {
   const queryClient = new QueryClient();
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <SessionProvider session={pageProps.session}>
         <QueryClientProvider client={queryClient}>
           {Component.auth ? (
