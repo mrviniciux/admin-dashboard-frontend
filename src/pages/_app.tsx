@@ -21,7 +21,12 @@ export default function App({ Component, pageProps }: AppPageProps) {
   const queryClient = new QueryClient();
   const router = useDemoRouter('/dashboard');
   return (
-    <AppProvider router={router} navigation={NAVIGATION} theme={theme}>
+    <AppProvider
+      branding={{ title: 'admin-dashboard-frontend' }}
+      router={router}
+      navigation={NAVIGATION}
+      theme={theme}
+    >
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <SessionProvider session={pageProps.session}>
