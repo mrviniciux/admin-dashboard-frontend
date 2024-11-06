@@ -7,6 +7,9 @@ import { ReactNode } from 'react';
 import Loader from '@/components/Loader';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { theme } from '@/config';
+import { useDemoRouter } from '@toolpad/core/internal';
+import { AppProvider } from '@toolpad/core/AppProvider';
+import { NAVIGATION } from '@/config/navigation';
 
 type AppPageProps = AppProps & {
   Component: {
@@ -16,21 +19,24 @@ type AppPageProps = AppProps & {
 
 export default function App({ Component, pageProps }: AppPageProps) {
   const queryClient = new QueryClient();
+  const router = useDemoRouter('/dashboard');
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <SessionProvider session={pageProps.session}>
-        <QueryClientProvider client={queryClient}>
-          {Component.auth ? (
-            <Auth>
+    <AppProvider router={router} navigation={NAVIGATION} theme={theme}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <SessionProvider session={pageProps.session}>
+          <QueryClientProvider client={queryClient}>
+            {Component.auth ? (
+              <Auth>
+                <Component {...pageProps} />
+              </Auth>
+            ) : (
               <Component {...pageProps} />
-            </Auth>
-          ) : (
-            <Component {...pageProps} />
-          )}
-        </QueryClientProvider>
-      </SessionProvider>
-    </ThemeProvider>
+            )}
+          </QueryClientProvider>
+        </SessionProvider>
+      </ThemeProvider>
+    </AppProvider>
   );
 }
 
