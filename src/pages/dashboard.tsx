@@ -1,5 +1,5 @@
 import Charts from '@/components/Charts';
-import Template from '@/components/Template';
+import Template from '@/layouts/Template';
 import {
   fetchSalesByYear,
   fetchSalesGraph,
