@@ -7,7 +7,7 @@
   "plugins": ["react"],
   "rules": {
     "@typescript-eslint/no-unused-vars": [
-      "warn", // ou "off" para desativar completamente
+      "warn",
       {
         "vars": "all",
         "args": "after-used",
