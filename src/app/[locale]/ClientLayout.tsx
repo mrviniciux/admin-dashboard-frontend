@@ -13,6 +13,7 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { PageContainer } from '@toolpad/core/PageContainer';
 import { useTranslations } from 'next-intl';
+import LanguageSelector from '@/components/LanguageSelector';
 
 type ClientLayoutProps = {
   locale: string;
@@ -34,7 +35,7 @@ export default function ClientLayout({ locale, children }: ClientLayoutProps) {
           <SessionProvider>
             <QueryClientProvider client={queryClient}>
               <Auth>
-                <DashboardLayout>
+                <DashboardLayout slots={{ sidebarFooter: LanguageSelector }}>
                   <PageContainer maxWidth={false}>{children}</PageContainer>
                 </DashboardLayout>
               </Auth>
