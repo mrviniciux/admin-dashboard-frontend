@@ -3,6 +3,8 @@ import { getMessages } from 'next-intl/server';
 import ClientLayout from './ClientLayout';
 import { NextIntlClientProvider } from 'next-intl';
 
+import '../../styles/globals.css';
+
 type AppPageProps = {
   children: ReactNode;
   params: { locale: string };

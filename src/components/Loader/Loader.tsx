@@ -1,6 +1,3 @@
-'use client';
-import Link from 'next/link';
-import { LoaderContainerStyled } from './Loader.styled';
 import { LoaderProps } from './Loader.types';
 
 import {
@@ -19,17 +16,16 @@ function Loader({
   const DefaultLoader = () => (
     <Grid container direction={'column'} alignItems={'center'} width={'100vw'}>
       {type === 'linear' ? (
-        <LinearProgress color="primary" style={{ width: '100%' }} />
+        <LinearProgress style={{ width: '100%' }} />
       ) : (
-        <CircularProgress color="primary" />
+        <CircularProgress />
       )}
       <Typography paddingTop={2} variant="overline" display="block">
         {msg || 'Carregando...'}
       </Typography>
       {showRefresh && (
         <Typography variant="caption" display="block" gutterBottom>
-          Demorando muito? Experimente{' '}
-          <Link href={'/'}>recarregar a página.</Link>
+          Demorando muito? Experimente <a href="/">recarregar a página.</a>
         </Typography>
       )}
     </Grid>
@@ -37,9 +33,9 @@ function Loader({
 
   if (fullScreen)
     return (
-      <LoaderContainerStyled>
+      <div id="global-loader">
         <DefaultLoader />
-      </LoaderContainerStyled>
+      </div>
     );
 
   return <DefaultLoader />;
