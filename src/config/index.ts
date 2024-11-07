@@ -18,6 +18,10 @@ declare module '@mui/material/styles' {
 }
 
 export const theme = createTheme({
+  cssVariables: {
+    colorSchemeSelector: 'data-toolpad-color-scheme',
+  },
+  colorSchemes: { light: true, dark: true },
   palette: {
     mode: 'light',
     background: {
