@@ -5,10 +5,13 @@
 
 Stack
 
-- Storybook v8.2
+- Storybook v8
 - Jest v29
-- TS v5.5
+- TS v5
 - NextJS v14
+- next-intl v3 for i18n
+- zustand v4
+- next-auth v4
 
 ## Initialization
 
