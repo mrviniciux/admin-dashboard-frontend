@@ -6,5 +6,8 @@
   },
   "orders": {
     "title": "Orders"
+  },
+  "menu": {
+    "languages": "Languages:"
   }
 }

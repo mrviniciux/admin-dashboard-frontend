@@ -6,5 +6,8 @@
   },
   "orders": {
     "title": "Pedidos"
+  },
+  "menu": {
+    "languages": "Idiomas:"
   }
 }

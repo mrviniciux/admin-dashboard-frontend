@@ -6,16 +6,23 @@ import {
   MenuItem,
   FormControl,
   SelectChangeEvent,
+  Container,
+  Typography,
+  Box,
 } from '@mui/material';
 import Flag from 'react-world-flags';
 import { useRouter } from 'next/navigation';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
+import { SidebarFooterProps } from '@toolpad/core';
 
-interface LanguageSelectProps {}
+type LanguageSelectProps = {
+  labeled?: boolean;
+};
 
-const LanguageSelector: React.FC<LanguageSelectProps> = () => {
+const LanguageSelector: React.FC<LanguageSelectProps> = ({ labeled }) => {
   const router = useRouter();
   const locale = useLocale();
+  const translate = useTranslations();
 
   const handleChange = (event: SelectChangeEvent<string>) => {
     const selectedLocale = event.target.value as string;
@@ -35,7 +42,7 @@ const LanguageSelector: React.FC<LanguageSelectProps> = () => {
     },
   ];
 
-  return (
+  const InputLanguage = () => (
     <FormControl variant="outlined" size="small">
       <Select
         value={locale} // Idioma atual
@@ -51,6 +58,16 @@ const LanguageSelector: React.FC<LanguageSelectProps> = () => {
         ))}
       </Select>
     </FormControl>
+  );
+
+  if (!labeled) return <InputLanguage />;
+
+  return (
+    <Box padding={2}>
+      <Typography variant="caption">{translate('menu.languages')}</Typography>{' '}
+      <br />
+      <InputLanguage />
+    </Box>
   );
 };
 
