@@ -9,6 +9,8 @@ import { AppProvider } from '@toolpad/core/AppProvider';
 import { NAVIGATION } from '@/config/navigation';
 import Auth from './Auth';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
+import { DashboardLayout } from '@toolpad/core/DashboardLayout';
+import { PageContainer } from '@toolpad/core/PageContainer';
 
 type AppPageProps = {
   children: ReactNode;
@@ -30,7 +32,11 @@ export default function RootLayout({ children }: AppPageProps) {
               <CssBaseline />
               <SessionProvider>
                 <QueryClientProvider client={queryClient}>
-                  <Auth>{children}</Auth>
+                  <Auth>
+                    <DashboardLayout>
+                      <PageContainer maxWidth={false}>{children}</PageContainer>
+                    </DashboardLayout>
+                  </Auth>
                 </QueryClientProvider>
               </SessionProvider>
             </ThemeProvider>

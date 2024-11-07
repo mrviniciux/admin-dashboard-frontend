@@ -1,7 +1,6 @@
 'use client';
 import Charts from '@/components/Charts';
-import { DashboardLayout } from '@toolpad/core/DashboardLayout';
-import { PageContainer } from '@toolpad/core/PageContainer';
+
 import {
   fetchSalesByYear,
   fetchSalesGraph,
@@ -30,31 +29,27 @@ function Dashboard() {
   });
 
   return (
-    <DashboardLayout>
-      <PageContainer maxWidth={false}>
-        <Grid2
-          container
-          width={'100%'}
-          alignItems={'flex-start'}
-          spacing={4}
-          justifyContent={'center'}
-        >
-          <Grid2 size={sizes}>
-            <Charts title="Vendas por produto" type="line" {...sales} />
-          </Grid2>
-          <Grid2 size={sizes}>
-            <Charts title="Vendas por ano" type="bar" {...salesByYear} />
-          </Grid2>
-          <Grid2 size={sizes}>
-            <Charts
-              title="Distribuição do tempo"
-              type="pie"
-              {...timeDistribution}
-            />
-          </Grid2>
-        </Grid2>
-      </PageContainer>
-    </DashboardLayout>
+    <Grid2
+      container
+      width={'100%'}
+      alignItems={'flex-start'}
+      spacing={4}
+      justifyContent={'center'}
+    >
+      <Grid2 size={sizes}>
+        <Charts title="Vendas por produto" type="line" {...sales} />
+      </Grid2>
+      <Grid2 size={sizes}>
+        <Charts title="Vendas por ano" type="bar" {...salesByYear} />
+      </Grid2>
+      <Grid2 size={sizes}>
+        <Charts
+          title="Distribuição do tempo"
+          type="pie"
+          {...timeDistribution}
+        />
+      </Grid2>
+    </Grid2>
   );
 }
 
