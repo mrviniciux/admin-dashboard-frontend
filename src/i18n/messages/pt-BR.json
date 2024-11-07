@@ -1,0 +1,10 @@
+{
+  "dashboard": {
+    "salesProduct": "Vendas por produto",
+    "salesByYear": "Vendas por ano",
+    "timeDistribution": "Distribuição do tempo"
+  },
+  "orders": {
+    "title": "Pedidos"
+  }
+}

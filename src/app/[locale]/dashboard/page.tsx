@@ -8,8 +8,10 @@ import {
 } from '@/services/charts';
 import { Grid2 } from '@mui/material';
 import { useQueries } from '@tanstack/react-query';
+import { useTranslations } from 'next-intl';
 
 function Dashboard() {
+  const translate = useTranslations();
   const sizes = { sm: 12, xs: 12, lg: 4 };
   const [sales, salesByYear, timeDistribution] = useQueries({
     queries: [
@@ -37,14 +39,22 @@ function Dashboard() {
       justifyContent={'center'}
     >
       <Grid2 size={sizes}>
-        <Charts title="Vendas por produto" type="line" {...sales} />
-      </Grid2>
-      <Grid2 size={sizes}>
-        <Charts title="Vendas por ano" type="bar" {...salesByYear} />
+        <Charts
+          title={translate('dashboard.salesProduct')}
+          type="line"
+          {...sales}
+        />
       </Grid2>
       <Grid2 size={sizes}>
         <Charts
-          title="Distribuição do tempo"
+          title={translate('dashboard.salesByYear')}
+          type="bar"
+          {...salesByYear}
+        />
+      </Grid2>
+      <Grid2 size={sizes}>
+        <Charts
+          title={translate('dashboard.timeDistribution')}
           type="pie"
           {...timeDistribution}
         />

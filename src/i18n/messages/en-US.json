@@ -1,0 +1,10 @@
+{
+  "dashboard": {
+    "salesProduct": "Product Sales",
+    "salesByYear": "Sales by year",
+    "timeDistribution": "Time distribution"
+  },
+  "orders": {
+    "title": "Orders"
+  }
+}

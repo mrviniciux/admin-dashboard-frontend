@@ -6,6 +6,15 @@
   ],
   "plugins": ["react"],
   "rules": {
+    "@typescript-eslint/no-unused-vars": [
+      "warn", // ou "off" para desativar completamente
+      {
+        "vars": "all",
+        "args": "after-used",
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
     "react/react-in-jsx-scope": "off",
     "prettier/prettier": ["error", { "endOfLine": "auto" }]
   },
