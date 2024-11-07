@@ -13,7 +13,6 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { PageContainer } from '@toolpad/core/PageContainer';
 import { useTranslations } from 'next-intl';
-import LanguageSelector from '@/components/LanguageSelector';
 import FooterMenu from '@/components/FooterMenu';
 
 type ClientLayoutProps = {
