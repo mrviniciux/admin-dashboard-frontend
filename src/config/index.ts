@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import { createTheme, PaletteMode } from '@mui/material';
+import { createTheme } from '@mui/material';
 
 export const API_URL = 'http://localhost:3000/api';
 
@@ -9,7 +8,6 @@ declare module '@mui/material/styles' {
       danger: string;
     };
   }
-  // allow configuration using `createTheme`
   interface ThemeOptions {
     status?: {
       danger?: string;

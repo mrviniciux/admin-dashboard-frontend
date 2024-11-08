@@ -6,14 +6,12 @@ import {
   MenuItem,
   FormControl,
   SelectChangeEvent,
-  Container,
   Typography,
   Box,
 } from '@mui/material';
 import Flag from 'react-world-flags';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import { SidebarFooterProps } from '@toolpad/core';
 
 type LanguageSelectProps = {
   labeled?: boolean;
