@@ -9,7 +9,7 @@ interface User {
   token: string; // O JWT retornado pela API
 }
 
-export const authOptions: NextAuthOptions = {
+const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: 'Credentials',
