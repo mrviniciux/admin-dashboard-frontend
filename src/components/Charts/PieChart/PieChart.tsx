@@ -73,7 +73,7 @@ const PieChart = ({ labels, datasets, title }: PieChartProps) => {
         display: true,
         position: 'top',
         labels: {
-          color: 'rgba(0, 0, 0, 0.87)',
+          color: 'gray',
           font: {
             size: 14,
             family: 'Arial, sans-serif',
