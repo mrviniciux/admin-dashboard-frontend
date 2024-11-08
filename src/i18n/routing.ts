@@ -12,8 +12,11 @@ export const routing = defineRouting({
     },
   },
   pathnames: {
-    '/': '/',
-    '/dashboard': '/dashboard',
+    '/': '/dashboard',
+    '/dashboard': {
+      'pt-BR': '/dashboard',
+      'en-US': '/dashboard',
+    },
     '/orders': {
       'pt-BR': '/pedidos',
       'en-US': '/orders',
